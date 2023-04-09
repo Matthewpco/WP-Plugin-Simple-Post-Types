@@ -1,2 +1,23 @@
-# WP-Plugin-Simple-Post-Types
-Adds a new tab in the WordPress dashboard under Tools called Manage CPT where you can add or remove custom post types.
+![](https://raw.githubusercontent.com/Matthewpco/WP-Plugin-Simple-Post-Types/main/spt-screenshot-1.png)
+
+# WordPress plugin to simply create or remove post types
+
+<br>
+
+## 🙋‍♂️ Introduction
+
+- This plugin creates a new submenu under the tools category called Manage CPT where you can simply add or remove custom post types in the most minimal way possible.
+
+<br>
+
+## 📜 Features
+
+- HTML
+- CSS
+- PHP
+- WordPress Plugin
+
+
+  <br>
+  
+![](https://raw.githubusercontent.com/Matthewpco/WP-Plugin-Simple-Post-Types/main/spt-screenshot.png)
