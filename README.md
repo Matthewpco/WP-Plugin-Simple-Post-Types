@@ -1,4 +1,4 @@
-![](https://raw.githubusercontent.com/Matthewpco/WP-Plugin-Simple-Post-Types/main/spt-screenshot-1.png)
+![](https://raw.githubusercontent.com/Matthewpco/WP-Plugin-Simple-Post-Types/main/spt-screenshot-2.png)
 
 # WordPress plugin to simply create or remove post types
 
