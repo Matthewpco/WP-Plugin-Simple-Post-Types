@@ -16,11 +16,30 @@ function display_manage_cpt_page() {
             <table class="form-table">
                 <tr valign="top">
                     <th scope="row">Add or Remove<br>Custom Post Type:</th>
-                    <td><input type="text" name="new_cpt" value="" /></td>
+                    <td><input type="text" id="new-cpt" name="new_cpt" value="" /></td>
                 </tr>
             </table>
             <?php submit_button(); ?>
         </form>
+		<button id="show-cpt-code">Show CPT Code</button>
+		<div id="cpt-code"></div>
+		
+		
+		<script>
+			document.getElementById('show-cpt-code').addEventListener('click', function() {
+				var xhr = new XMLHttpRequest();
+				xhr.onreadystatechange = function() {
+					if (xhr.readyState == XMLHttpRequest.DONE) {
+						document.getElementById('cpt-code').innerHTML = xhr.responseText;
+					}
+				}
+				xhr.open('POST', '<?php echo admin_url('admin-ajax.php'); ?>', true);
+				xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+				xhr.send('action=display_cpt_code&new_cpt=' + document.getElementById('new-cpt').value);
+			});
+		</script>
+		
+		
     </div>
     <?php
 }
