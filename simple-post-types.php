@@ -3,7 +3,7 @@
 Plugin Name: Simple Post Types
 Plugin URI: https://github.com/Matthewpco/WP-Plugin-Simple-Post-Types
 Description: Adds a new tab in the WordPress dashboard under Tools called Manage CPT where you can add or remove custom post types.
-Version: 1.5.0
+Version: 1.6.0
 Author: Gary Matthew Payne
 Author URI: https://wpwebdevelopment.com/
 */
@@ -54,7 +54,30 @@ function manage_cpt_page() {
 }
 
 
+// Display custom post type registration code
+function display_cpt_code() {
+    if (isset($_POST['new_cpt'])) {
+        $new_cpt = sanitize_text_field($_POST['new_cpt']);
+        $code = "function my_custom_post_type() {
+            register_post_type( '$new_cpt',
+                array(
+                    'labels' => array(
+                        'name' => __( '$new_cpt' ),
+                        'singular_name' => __( '$new_cpt' )
+                    ),
+                    'public' => true,
+                    'has_archive' => true,
+                )
+            );
+        }
+        add_action( 'init', 'my_custom_post_type' );";
+        echo "<pre><code>$code</code></pre>";
+    }
+	wp_die(); // Terminate script execution
+}
+
 // Hooks
 add_action('admin_menu', 'manage_cpt_menu');
 add_action('admin_post_register_cpt', 'manage_cpt_page');
+add_action('wp_ajax_display_cpt_code', 'display_cpt_code');
 add_action('init', 'my_register_cpts_on_init');
